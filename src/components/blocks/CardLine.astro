@@ -1,0 +1,39 @@
+---
+interface Props {
+	cls: string;
+}
+
+const { cls } = Astro.props;
+
+---
+
+<article class={cls}>
+    <slot/>
+</article>
+
+
+<style>
+    article {
+
+        cursor: default;
+        overflow: hidden;
+        width: 100%;
+        margin: 0px;
+        padding: calc(var(--global-pad) * 2);
+        background: var(--clr-ff);
+        border-left: .3rem solid;
+        border-left-color: var(--clr-20);
+        border-radius: .4rem;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        gap: 0;
+
+        transition: border-left-color .2s ease-in-out;
+    }
+
+    article:hover {
+        border-left-color: var(--clr-base);
+    }
+
+</style> 

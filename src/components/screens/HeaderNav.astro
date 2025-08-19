@@ -1,0 +1,87 @@
+---
+import { Image } from "astro:assets";
+import logo_lm from "@assets/img/lm-logo.svg";
+
+import LinkNav from "@components/atoms/ANav.astro";
+---
+
+<header class="header-nav">
+    <div class="header-nav-content">
+        <a class="logo" href="/#hero"
+            ><Image
+                class="landing-model-header"
+                id="landing-model-header"
+                src={logo_lm}
+                alt="Landing Model"
+            /></a
+        >
+
+        <nav>
+            <ul>
+                <li> <LinkNav href="/#hero" body="Hero" /></li>
+                <li> <LinkNav href="/#textos" body="Textos" /></li>
+                <li> <LinkNav href="/#color" body="Color" /></li>
+                <li> <LinkNav href="/#footer" body="Footer" /></li>
+            </ul>
+        </nav>
+    </div>
+</header>
+
+<div class="header-nav-spacer"></div>
+
+<style>
+    /* Espaciador */
+    div.header-nav-spacer {
+        height: var(--header-h);
+        z-index: 899;
+
+    }
+
+    /* Todo el HeaderNav */
+    header.header-nav {
+        top: 0px;
+        width: 100%;
+        position: fixed;
+        user-select: none;
+        z-index: 900;
+        height: var(--header-h);
+        overflow: hidden;
+        background-color: rgba(255, 255, 255, 0.6);
+        backdrop-filter: blur(10px);
+        box-shadow: 0 2px 2px rgba(0, 0, 0, 0.1);
+    }
+
+    /* Contenido del HeaderNav alineado */
+    div.header-nav-content {
+        width: var(--maxw-cc);
+        height: 100%;
+        margin: 0 auto;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 0;
+    }
+
+    /* logo */
+    a.logo img {
+        margin: 1rem 0 0 0;
+        padding: 0;
+        width: calc(3rem + 0.5lvw);
+        object-fit: contain;
+        object-position: center;
+
+    }
+
+    /* navegación */
+    ul {
+        list-style: none;
+        display: flex;
+        align-items: flex-end;
+        gap: 1.6em;
+    }
+
+    li {
+        margin: 0;
+        padding: 0;
+    }
+</style>

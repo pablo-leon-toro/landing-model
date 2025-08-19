@@ -1,0 +1,67 @@
+---
+import CardLine from "@components/blocks/CardLine.astro";
+import Grid321 from "@components/prouns/LayoutGrid321.astro";
+---
+
+<Grid321 id="textos">
+
+    <CardLine cls="a1">
+        <h1 class="h1-xxl">Titulo H1 XXL</h1>
+        <p class="p-xl">Tamaño XL : dolor sit amet consectetur adipisicing elit. Tempora ut ullam non nam quaerat? Temporibus quos sapiente corporis quam dolorem rem necessitatibus molestias minus exercitationem deserunt? Aliquam eius commodi at.</p>
+    </CardLine>
+    <CardLine cls="a2">
+        <h1 class="h1-xl">Titulo H1 XL</h1>
+        <p class="p-l">Tamaño L : Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempora ut ullam non nam quaerat? Temporibus quos sapiente corporis quam dolorem rem necessitatibus molestias minus exercitationem deserunt? Aliquam eius commodi at.</p>
+    </CardLine>
+
+    <CardLine cls="a3">
+        <h1 class="h1-l">Titulo H1 L</h1>
+        <p>Tamaño Normal de 'p' : Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempora ut ullam non nam quaerat? Temporibus quos sapiente corporis quam dolorem rem necessitatibus molestias minus exercitationem deserunt? Aliquam eius commodi at.</p>
+    </CardLin>
+
+    <CardLine cls="a4">
+        <h1>Titulo H1</h1>
+        <h2>Titulo H2</h2>
+    </CardLine>
+    
+    <CardLine cls="a5">
+        <h3>Titulo H3</h3>
+        <h4>Titulo H4</h4>
+        <a href="#hero">Link Top</a>
+    </CardLine>
+    
+    <CardLine cls="a6">
+        <h5>Titulo H5</h5>
+        <p class="p-s">Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempora ut ullam non nam quaerat? Temporibus quos sapiente corporis quam dolorem rem necessitatibus molestias minus exercitationem deserunt? Aliquam eius commodi at.</p>
+        <h6>Titulo H6</h6>
+        <p class="p-xs">Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempora ut ullam non nam quaerat? Temporibus quos sapiente corporis quam dolorem rem necessitatibus molestias minus exercitationem deserunt? Aliquam eius commodi at.</p>
+    </CardLine>
+
+</Grid321>
+
+<style>
+
+    .h1-xxl {
+        font-size: var(--txt-fs-h1-xxl);
+    }
+    .h1-xl {
+        font-size: var(--txt-fs-h1-xl);
+    }
+    .h1-l {
+        font-size: var(--txt-fs-h1-l);
+    }
+
+    .p-xs {
+        font-size: var(--txt-fs-p-xs);
+    }
+    .p-s {
+        font-size: var(--txt-fs-p-s);
+    }
+    .p-l {
+        font-size: var(--txt-fs-p-l);
+    }
+    .p-xl {
+        font-size: var(--txt-fs-p-xl);
+    }
+</style>
+

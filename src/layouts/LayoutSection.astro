@@ -1,0 +1,30 @@
+---
+interface Props {
+	id: string;
+    bg?: string;
+}
+
+const { id, bg = "var(--clr-ff)" } = Astro.props;
+
+---
+<div class="bg-layout-section" id={id} style={`background: ${bg}`}>
+    <section class="layout-section">
+        <slot />
+    </section>
+</div>
+
+<style>
+
+    .bg-layout-section {
+        width: var(--maxw-b);
+        margin: 0 auto;
+        padding: var(--global-pad) 0;
+    }
+
+    section{
+        width: var(--maxw-c);
+        margin: 0 auto;
+        padding: var(--global-pad);
+    }
+
+</style>

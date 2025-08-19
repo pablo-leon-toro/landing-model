@@ -1,0 +1,38 @@
+---
+interface Props {
+	id: string;
+}
+
+const { id } = Astro.props;
+
+---
+
+<div class="grid" id={id}>
+    <slot />
+</div>
+
+<style>
+
+    .grid {
+        width: var(--maxw-c);
+        margin: calc(var(--global-pad)) auto;
+        padding: 0;
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        gap: calc(var(--global-pad));
+    }
+
+
+    @media (width < 1440px) {
+        .grid {
+            grid-template-columns: 1fr 1fr;
+        }
+    }
+
+    @media (width < 768px) {
+        .grid {
+            grid-template-columns: 1fr;
+        }
+    }
+
+</style>

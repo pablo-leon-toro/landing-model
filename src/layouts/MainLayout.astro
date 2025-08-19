@@ -1,0 +1,57 @@
+---
+import "@css/main-style.css"; // Estilos globales o Protons y Variables Globales
+import HeaderNav from "@components/screens/HeaderNav.astro";
+
+interface Props {
+	title: string;
+}
+
+const { title } = Astro.props;
+---
+
+<!doctype html>
+<html lang="es">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width" />
+		<title>{title}</title>
+		<meta
+			name="description"
+			content="Model Landing: una web inicial para proyectos."
+		/>
+		<link
+			rel="icon"
+			type="image/svg+xml"
+			href="favicon-lm.svg"
+		/>
+		<meta name="generator" content={Astro.generator} />
+		<meta name="author" content="Pablo / pablo@redte.ch" />
+		
+	</head>
+	<body>
+		<HeaderNav />
+		<main>
+			<slot>
+				<section class="slot-defecto">
+					<h1>{title}</h1>
+				</section>
+			</slot>
+		</main>
+	</body>
+</html>
+
+<style is:global>
+
+	/* ------------------- main: slot general de todas las pages ------------------- */
+
+	main {
+	}
+
+	/* ------------------- Por defecto cuando no entra contenido al <slot> ------------------- */
+
+	section.slot-defecto {
+		text-align: center;
+	}
+
+	/* ------------------- Fonts ------------------- */
+</style>

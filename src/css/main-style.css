@@ -1,0 +1,357 @@
+/* Estilos Globales y Protons */
+
+/* ------------------- ------------------- Configuración ------------------- ------------------- */
+*,
+*::after,
+*::before {
+    box-sizing: border-box;
+    min-width: 0;
+}
+
+* {
+    margin: 0;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+    html {
+        interpolate-size: allow-keywords;
+    }
+}
+
+/* ------------------- ------------------- Variables ------------------- ------------------- */
+:root {
+
+    --header-h: 5rem;
+    /* altura del header y la navegación. */
+    --footer-h: 7rem;
+    /* altura del footer */
+
+
+    /* Maximos del width, distancias globales */
+
+    --maxw-a: 2560px;
+    /* valor máximo del width de la app */
+
+    --maxw-b: min(100%, var(--maxw-a));
+    /* valor máximo del width del background */
+
+    --maxw-cmax: calc(.96 * var(--maxw-a));
+    --maxw-c: min(96lvw, var(--maxw-cmax));
+    /* Valor máximo del contenedor C (se desprende la distancia de fw-C)*/
+
+    --max-gp: calc(1rem + (var(--maxw-a) * 0.006));
+    /* valor máximo de la distancia C-txt */
+    --global-pad: min(calc(1rem + 0.6lvw), var(--max-gp));
+    /* distancia entre el final de la pantalla y el contenedor de ancho C, como también del contenedor de ancho C al texto */
+
+    --maxw-cc: calc(var(--maxw-c) - (var(--global-pad) * 2));
+    /* valor máximo del width del contenido (máximo hasta donde puede llegar el texto) */
+
+
+
+    /* --- colores --- */
+
+    --clr-base: rgb(63, 55, 229);
+
+
+    /* Escala de Grises con Hue del color base. Mantener un bajo nivel de Chroma */
+    --clr-chroma-level: 0.04;
+
+    --clr-00: oklch(from var(--clr-base) 0 calc(var(--clr-chroma-level) * c) h);
+    --clr-02: oklch(from var(--clr-base) 0.02 calc(var(--clr-chroma-level) * c) h);
+    --clr-05: oklch(from var(--clr-base) 0.05 calc(var(--clr-chroma-level) * c) h);
+    --clr-10: oklch(from var(--clr-base) 0.1 calc(var(--clr-chroma-level) * c) h);
+    --clr-20: oklch(from var(--clr-base) 0.2 calc(var(--clr-chroma-level) * c) h);
+    --clr-30: oklch(from var(--clr-base) 0.3 calc(var(--clr-chroma-level) * c) h);
+    --clr-40: oklch(from var(--clr-base) 0.4 calc(var(--clr-chroma-level) * c) h);
+    --clr-50: oklch(from var(--clr-base) 0.5 calc(var(--clr-chroma-level) * c) h);
+    --clr-60: oklch(from var(--clr-base) 0.6 calc(var(--clr-chroma-level) * c) h);
+    --clr-70: oklch(from var(--clr-base) 0.7 calc(var(--clr-chroma-level) * c) h);
+    --clr-80: oklch(from var(--clr-base) 0.8 calc(var(--clr-chroma-level) * c) h);
+    --clr-90: oklch(from var(--clr-base) 0.9 calc(var(--clr-chroma-level) * c) h);
+    --clr-95: oklch(from var(--clr-base) 0.95 calc(var(--clr-chroma-level) * c) h);
+    --clr-98: oklch(from var(--clr-base) 0.98 calc(var(--clr-chroma-level) * c) h);
+    --clr-ff: oklch(from var(--clr-base) 1 calc(var(--clr-chroma-level) * c) h);
+
+    --clr-text: var(--clr-00); /* Color del Texto */
+    --clr-a: var(--clr-50); /* Color Links */
+    --clr-ahover: var(--clr-00); /* Color Links Hover */
+    --clr-bg-body: var(--clr-98); /* Color del Fondo del Body */
+    --clr-text-select: var(--clr-ff); /* Color del Texto del Select */
+    --clr-bg-select: var(--clr-base); /* Color del Fondo del Select */
+
+    /* Colores derivados del color Base, manteniendo el Chroma y el Hue, Variando la Luminosidad */
+
+    --clr-base-l-00: oklch(from var(--clr-base) 0 c h);
+    --clr-base-l-10: oklch(from var(--clr-base) 0.1 c h);
+    --clr-base-l-20: oklch(from var(--clr-base) 0.2 c h);
+    --clr-base-l-30: oklch(from var(--clr-base) 0.3 c h);
+    --clr-base-l-40: oklch(from var(--clr-base) 0.4 c h);
+    --clr-base-l-50: oklch(from var(--clr-base) 0.5 c h);
+    --clr-base-l-60: oklch(from var(--clr-base) 0.6 c h);
+    --clr-base-l-70: oklch(from var(--clr-base) 0.7 c h);
+    --clr-base-l-80: oklch(from var(--clr-base) 0.8 c h);
+    --clr-base-l-90: oklch(from var(--clr-base) 0.9 c h);
+    --clr-base-l-ff: oklch(from var(--clr-base) 1 c h);
+
+    /* gradientes */
+
+    --gradient-v1: linear-gradient(160deg, var(--clr-bg-body) 0%, var(--clr-base-l-ff) 35%, var(--clr-base-l-90) 50%, var(--clr-base-l-ff) 65%, var(--clr-bg-body) 100%);
+    --gradient-v2: linear-gradient(160deg, var(--clr-bg-body) 0%, var(--clr-base-l-00) 35%, var(--clr-base-l-10) 50%, var(--clr-base-l-00) 65%, var(--clr-bg-body) 100%);
+ 
+
+
+    /* Texto : fontsize titulos h1-xxl ... h6 : --txt-fs-h1-xxl ... --txt-fs-h6 */
+
+    --txt-base-fs: 1rem;
+    --txt-base-fs-delta: .0625rem;
+
+    --txt-base-fs-rv: 0.1;
+    --txt-base-fs-delta-rv: 0.3;
+
+
+    --txt-fs-h6-max: calc(var(--txt-base-fs) + (var(--txt-base-fs-rv) * var(--maxw-a) / 100));
+    --txt-fs-h6-pre: calc(var(--txt-base-fs) + (var(--txt-base-fs-rv) * 1lvw));
+    --txt-fs-h6: min(var(--txt-fs-h6-pre), var(--txt-fs-h6-max));
+
+    --txt-fs-h5-max: calc(var(--txt-base-fs) + var(--txt-base-fs-delta) + ((var(--txt-base-fs-rv) + var(--txt-base-fs-delta-rv)) * var(--maxw-a) / 100));
+    --txt-fs-h5-pre: calc(var(--txt-base-fs) + var(--txt-base-fs-delta) + ((var(--txt-base-fs-rv) + var(--txt-base-fs-delta-rv)) * 1lvw));
+    --txt-fs-h5: min(var(--txt-fs-h5-pre), var(--txt-fs-h5-max));
+
+    --txt-fs-h4-max: calc(var(--txt-base-fs) + (var(--txt-base-fs-delta) * 2) + ((var(--txt-base-fs-rv) + (var(--txt-base-fs-delta-rv) * 2)) * (var(--maxw-a) / 100)));
+    --txt-fs-h4-pre: calc(var(--txt-base-fs) + (var(--txt-base-fs-delta) * 2) + ((var(--txt-base-fs-rv) + (var(--txt-base-fs-delta-rv) * 2)) * 1lvw));
+    --txt-fs-h4: min(var(--txt-fs-h4-pre), var(--txt-fs-h4-max));
+
+    --txt-fs-h3-max: calc(var(--txt-base-fs) + (var(--txt-base-fs-delta) * 3) + ((var(--txt-base-fs-rv) + (var(--txt-base-fs-delta-rv) * 3)) * (var(--maxw-a) / 100)));
+    --txt-fs-h3-pre: calc(var(--txt-base-fs) + (var(--txt-base-fs-delta) * 3) + ((var(--txt-base-fs-rv) + (var(--txt-base-fs-delta-rv) * 3)) * 1lvw));
+    --txt-fs-h3: min(var(--txt-fs-h3-pre), var(--txt-fs-h3-max));
+
+    --txt-fs-h2-max: calc(var(--txt-base-fs) + (var(--txt-base-fs-delta) * 4) + ((var(--txt-base-fs-rv) + (var(--txt-base-fs-delta-rv) * 4)) * (var(--maxw-a) / 100)));
+    --txt-fs-h2-pre: calc(var(--txt-base-fs) + (var(--txt-base-fs-delta) * 4) + ((var(--txt-base-fs-rv) + (var(--txt-base-fs-delta-rv) * 4)) * 1lvw));
+    --txt-fs-h2: min(var(--txt-fs-h2-pre), var(--txt-fs-h2-max));
+
+    --txt-fs-h1-max: calc(var(--txt-base-fs) + (var(--txt-base-fs-delta) * 5) + ((var(--txt-base-fs-rv) + (var(--txt-base-fs-delta-rv) * 5)) * (var(--maxw-a) / 100)));
+    --txt-fs-h1-pre: calc(var(--txt-base-fs) + (var(--txt-base-fs-delta) * 5) + ((var(--txt-base-fs-rv) + (var(--txt-base-fs-delta-rv) * 5)) * 1lvw));
+    --txt-fs-h1: min(var(--txt-fs-h1-pre), var(--txt-fs-h1-max));
+
+    --txt-fs-h1-l-max: calc(var(--txt-base-fs) + (var(--txt-base-fs-delta) * 6) + ((var(--txt-base-fs-rv) + (var(--txt-base-fs-delta-rv) * 6)) * (var(--maxw-a) / 100)));
+    --txt-fs-h1-l-pre: calc(var(--txt-base-fs) + (var(--txt-base-fs-delta) * 6) + ((var(--txt-base-fs-rv) + (var(--txt-base-fs-delta-rv) * 6)) * 1lvw));
+    --txt-fs-h1-l: min(var(--txt-fs-h1-l-pre), var(--txt-fs-h1-l-max));
+
+    --txt-fs-h1-xl-max: calc(var(--txt-base-fs) + (var(--txt-base-fs-delta) * 7) + ((var(--txt-base-fs-rv) + (var(--txt-base-fs-delta-rv) * 7)) * (var(--maxw-a) / 100)));
+    --txt-fs-h1-xl-pre: calc(var(--txt-base-fs) + (var(--txt-base-fs-delta) * 7) + ((var(--txt-base-fs-rv) + (var(--txt-base-fs-delta-rv) * 7)) * 1lvw));
+    --txt-fs-h1-xl: min(var(--txt-fs-h1-xl-pre), var(--txt-fs-h1-xl-max));
+
+    --txt-fs-h1-xxl-max: calc(var(--txt-base-fs) + (var(--txt-base-fs-delta) * 8) + ((var(--txt-base-fs-rv) + (var(--txt-base-fs-delta-rv) * 8)) * (var(--maxw-a) / 100)));
+    --txt-fs-h1-xxl-pre: calc(var(--txt-base-fs) + (var(--txt-base-fs-delta) * 8) + ((var(--txt-base-fs-rv) + (var(--txt-base-fs-delta-rv) * 8)) * 1lvw));
+    --txt-fs-h1-xxl: min(var(--txt-fs-h1-xxl-pre), var(--txt-fs-h1-xxl-max));
+
+
+    /* text : fontsize : --txt-fs- : p-xs p-s p p-l p-xl */
+
+    --txt-base-p-fs: 1rem;
+    --txt-base-p-fs-delta: .125rem;
+    --txt-base-p-fs-rv: 0.06;
+
+    --txt-fs-p-xs-max: calc(var(--txt-base-p-fs) - (var(--txt-base-p-fs-delta) * 2) + ((var(--txt-base-p-fs-rv) * (var(--maxw-a) / 100))));
+    --txt-fs-p-xs-pre: calc(var(--txt-base-p-fs) - (var(--txt-base-p-fs-delta) * 2) + (var(--txt-base-p-fs-rv) * 1lvw));
+    --txt-fs-p-xs: min(var(--txt-fs-p-xs-pre), var(--txt-fs-p-xs-max));
+
+    --txt-fs-p-s-max: calc(var(--txt-base-p-fs) - (var(--txt-base-p-fs-delta) * 1) + ((var(--txt-base-p-fs-rv) * (var(--maxw-a) / 100))));
+    --txt-fs-p-s-pre: calc(var(--txt-base-p-fs) - (var(--txt-base-p-fs-delta) * 1) + (var(--txt-base-p-fs-rv) * 1lvw));
+    --txt-fs-p-s: min(var(--txt-fs-p-s-pre), var(--txt-fs-p-s-max));
+
+    --txt-fs-p-max: calc(var(--txt-base-p-fs) + (var(--txt-base-p-fs-delta) * 0) + ((var(--txt-base-p-fs-rv) * (var(--maxw-a) / 100))));
+    --txt-fs-p-pre: calc(var(--txt-base-p-fs) + (var(--txt-base-p-fs-delta) * 0) + (var(--txt-base-p-fs-rv) * 1lvw));
+    --txt-fs-p: min(var(--txt-fs-p-pre), var(--txt-fs-p-max));
+
+    --txt-fs-p-l-max: calc(var(--txt-base-p-fs) + (var(--txt-base-p-fs-delta) * 1) + ((var(--txt-base-p-fs-rv) * (var(--maxw-a) / 100))));
+    --txt-fs-p-l-pre: calc(var(--txt-base-p-fs) + (var(--txt-base-p-fs-delta) * 1) + (var(--txt-base-p-fs-rv) * 1lvw));
+    --txt-fs-p-l: min(var(--txt-fs-p-l-pre), var(--txt-fs-p-l-max));
+
+    --txt-fs-p-xl-max: calc(var(--txt-base-p-fs) + (var(--txt-base-p-fs-delta) * 2) + ((var(--txt-base-p-fs-rv) * (var(--maxw-a) / 100))));
+    --txt-fs-p-xl-pre: calc(var(--txt-base-p-fs) + (var(--txt-base-p-fs-delta) * 2) + (var(--txt-base-p-fs-rv) * 1lvw));
+    --txt-fs-p-xl: min(var(--txt-fs-p-xl-pre), var(--txt-fs-p-xl-max));
+   
+
+
+}
+
+
+
+
+/* modo oscuro */
+
+/* @media (prefers-color-scheme: dark) {
+    :root {
+
+    --clr-00: oklch(from var(--clr-base) 1 calc(var(--clr-chroma-level) * c) h);
+    --clr-10: oklch(from var(--clr-base) 0.9 calc(var(--clr-chroma-level) * c) h);
+    --clr-20: oklch(from var(--clr-base) 0.8 calc(var(--clr-chroma-level) * c) h);
+    --clr-30: oklch(from var(--clr-base) 0.7 calc(var(--clr-chroma-level) * c) h);
+    --clr-40: oklch(from var(--clr-base) 0.6 calc(var(--clr-chroma-level) * c) h);
+    --clr-50: oklch(from var(--clr-base) 0.5 calc(var(--clr-chroma-level) * c) h);
+    --clr-60: oklch(from var(--clr-base) 0.4 calc(var(--clr-chroma-level) * c) h);
+    --clr-70: oklch(from var(--clr-base) 0.3 calc(var(--clr-chroma-level) * c) h);
+    --clr-80: oklch(from var(--clr-base) 0.2 calc(var(--clr-chroma-level) * c) h);
+    --clr-90: oklch(from var(--clr-base) 0.1 calc(var(--clr-chroma-level) * c) h);
+    --clr-ff: oklch(from var(--clr-base) 0 calc(var(--clr-chroma-level) * c) h);
+
+    --clr-front-text: var(--clr-00);
+    --clr-bg-body: var(--clr-80);
+
+    
+    --clr-base-lll: oklch(from var(--clr-base) calc(l * var(--delta-ddd)) c h);
+    --clr-base-ll: oklch(from var(--clr-base) calc(l * var(--delta-dd)) c h);
+    --clr-base-l: oklch(from var(--clr-base) calc(l * var(--delta-d)) c h);
+    --clr-base-d: oklch(from var(--clr-base) calc(l * var(--delta-l)) c h);
+    --clr-base-dd: oklch(from var(--clr-base) calc(l * var(--delta-ll)) c h);
+    --clr-base-ddd: oklch(from var(--clr-base) calc(l * var(--delta-lll)) c h);
+    }
+
+
+} */
+
+
+/* ------------------- ------------------- Estilos Generales ------------------- ------------------- */
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: calc(var(--header-h));
+}
+
+body {
+    background-color: var(--clr-bg-body);
+    color: var(--clr-front-text);
+    margin: 0;
+    padding: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+}
+
+
+
+/* ------------------- colores al seleccionar el texto ------------------- */
+
+::selection {
+    background-color: var(--clr-bg-select);
+    color: var(--clr-text-select);
+}
+
+/* ------------------- h1 .. h6 / p / img / a ------------------- */
+
+h1,
+.h1,
+h2,
+.h2,
+h3,
+.h3,
+h4,
+.h4,
+h5,
+.h5,
+h6,
+.h6 {
+    font-weight: 600;
+    line-height: 1.2;
+    text-wrap: balance;
+    margin-top: calc(.6rem + 0.6lvh);
+    margin-bottom: calc(1rem + 0.6lvh);
+    overflow-wrap: break-word;
+}
+
+h1,
+.h1 {
+    font-size: var(--txt-fs-h1);
+}
+
+h2,
+.h2 {
+    font-size: var(--txt-fs-h2);
+}
+
+h3,
+.h3 {
+    font-size: var(--txt-fs-h3);
+}
+
+h4,
+.h4 {
+    font-size: var(--txt-fs-h4);
+}
+
+h5,
+.h5 {
+    font-size: var(--txt-fs-h5);
+}
+
+h6,
+.h6 {
+    font-size: var(--txt-fs-h6);
+}
+
+p {
+    margin-top: 0;
+    margin-bottom: 1rem;
+    margin-bottom: 1lh;
+    font-size: var(--txt-fs-p);
+    line-height: 1.6;
+    font-weight: 400;
+    text-wrap: pretty;
+    overflow-wrap: break-word;
+}
+
+a {
+    margin-top: 0;
+    margin-bottom: 1rem;
+    font-size: var(--txt-fs-p);
+    text-decoration: none;
+    font-weight: 600;
+    color: var(--clr-a);
+    transition: color 0.3s ease-out;
+}
+
+a:visited {
+    color: var(--clr-a);
+}
+
+a:is(:hover, :focus-within, .active) {
+    color: var(--clr-ahover);
+    text-decoration: none;
+    transition: color 0s ease-out;
+}
+
+ul {
+    margin: 0;
+    padding: 0;
+}
+
+li {
+    margin-top: 0;
+    margin-bottom: 1rem;
+    margin-bottom: 1lh;
+    font-size: 1rem;
+    font-weight: 300;
+    line-height: 1.5;
+}
+
+img,
+picture,
+video,
+canvas,
+svg {
+    display: block;
+}
+
+img {
+    vertical-align: top;
+    object-fit: contain;
+    width: 100%;
+}
+
+input,
+button,
+textarea,
+select {
+    font: inherit;
+}
