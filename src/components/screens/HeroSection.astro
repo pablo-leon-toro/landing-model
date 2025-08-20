@@ -10,7 +10,7 @@ import Btn00 from "@components/atoms/Btn00.astro";
 
         <div class="left">
             <h1>Landing Model</h1>
-            <p>Un modelo de landing page para comenzar tus <strong>proyectos de Astro</strong>. Estructura solida, comienzo seguro, y mucho más.</p>
+            <p>Un modelo de landing page para comenzar tus <strong>proyectos de Astro</strong>. Estructura solida, comienzo seguro y mucho más.</p>
             <Btn00
                 body="Comenzar"
                 href="#textos"
@@ -78,7 +78,7 @@ import Btn00 from "@components/atoms/Btn00.astro";
 
     .landing-model-logo {
         margin: 0;
-        padding: 0;
+        padding: var(--global-pad);
         width: 100%;
         height: 100%;
         max-width: 600px;
@@ -89,6 +89,7 @@ import Btn00 from "@components/atoms/Btn00.astro";
         .hero-content {
             grid-template-columns: 1fr;
             grid-template-rows: auto auto;
+            gap: 0;
         }
 
         .landing-model-logo {

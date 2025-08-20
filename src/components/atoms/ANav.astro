@@ -16,7 +16,12 @@ const { href = '/', body = 'Inicio'} = Astro.props;
         padding: 0;
         cursor: pointer;
         user-select: none;
+    }
 
+    @media (width < 425px) {
+        a {
+            font-size: var(--txt-fs-p-s);
+        }
     }
 
 </style>

@@ -15,11 +15,11 @@ const { id } = Astro.props;
 
     .grid {
         width: var(--maxw-c);
-        margin: calc(var(--global-pad)) auto;
-        padding: 0;
+        margin: 0 auto;
+        padding: var(--global-pad) 0;
         display: grid;
         grid-template-columns: 1fr 1fr 1fr;
-        gap: calc(var(--global-pad));
+        gap: var(--global-pad);
     }
 
 

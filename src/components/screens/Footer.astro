@@ -1,30 +1,31 @@
 ---
-import LayoutSection from "@layouts/LayoutSection.astro";
 
-
+import SectionLayout from "@components/prouns/SectionLayout.astro";
 
 ---
 
-<LayoutSection id="footer" bg="var(--clr-base)">
+<SectionLayout id="footer" bg="var(--gradient-v3)">
 
-    
     <footer>
         <p>Landing Model | Footer | 2025</p>
     </footer>
 
-</LayoutSection>
-
+</SectionLayout>
 
 <style>
 
     p {
+        color: var(--clr-ff);
         font-weight: 600;
+        margin: 0;
     }
 
     footer {
         padding: 8rem 0;
         text-align: center;
-        color: var(--clr-ff);
+        display: flex;
+        justify-content: center;
+        align-items: center;
     }
 
 </style>

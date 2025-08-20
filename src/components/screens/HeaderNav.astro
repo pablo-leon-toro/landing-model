@@ -2,7 +2,7 @@
 import { Image } from "astro:assets";
 import logo_lm from "@assets/img/lm-logo.svg";
 
-import LinkNav from "@components/atoms/ANav.astro";
+import ANav from "@components/atoms/ANav.astro";
 ---
 
 <header class="header-nav">
@@ -18,10 +18,10 @@ import LinkNav from "@components/atoms/ANav.astro";
 
         <nav>
             <ul>
-                <li> <LinkNav href="/#hero" body="Hero" /></li>
-                <li> <LinkNav href="/#textos" body="Textos" /></li>
-                <li> <LinkNav href="/#color" body="Color" /></li>
-                <li> <LinkNav href="/#footer" body="Footer" /></li>
+                <li> <ANav href="/#hero" body="Hero" /></li>
+                <li> <ANav href="/#textos" body="Textos" /></li>
+                <li> <ANav href="/#color" body="Color" /></li>
+                <li> <ANav href="/#footer" body="Footer" /></li>
             </ul>
         </nav>
     </div>
@@ -46,7 +46,8 @@ import LinkNav from "@components/atoms/ANav.astro";
         z-index: 900;
         height: var(--header-h);
         overflow: hidden;
-        background-color: rgba(255, 255, 255, 0.6);
+
+        background-color: oklch(from var(--clr-ff) l c h / 0.6);
         backdrop-filter: blur(10px);
         box-shadow: 0 2px 2px rgba(0, 0, 0, 0.1);
     }
@@ -66,7 +67,7 @@ import LinkNav from "@components/atoms/ANav.astro";
     a.logo img {
         margin: 1rem 0 0 0;
         padding: 0;
-        width: calc(3rem + 0.5lvw);
+        width: calc(2rem + 1lvw);
         object-fit: contain;
         object-position: center;
 
@@ -77,11 +78,19 @@ import LinkNav from "@components/atoms/ANav.astro";
         list-style: none;
         display: flex;
         align-items: flex-end;
-        gap: 1.6em;
+        gap: calc(.5rem + 1.4lvw);
+
+        /* crear gap relativo lvw */
     }
 
     li {
         margin: 0;
         padding: 0;
+    }
+
+    @media (width < 425px) {
+        ul {
+            gap: calc(.2rem + 1.4lvw);
+        }
     }
 </style>

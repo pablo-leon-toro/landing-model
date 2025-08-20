@@ -21,7 +21,7 @@
 /* ------------------- ------------------- Variables ------------------- ------------------- */
 :root {
 
-    --header-h: 5rem;
+    --header-h: 4.5rem;
     /* altura del header y la navegación. */
     --footer-h: 7rem;
     /* altura del footer */
@@ -98,6 +98,7 @@
 
     --gradient-v1: linear-gradient(160deg, var(--clr-bg-body) 0%, var(--clr-base-l-ff) 35%, var(--clr-base-l-90) 50%, var(--clr-base-l-ff) 65%, var(--clr-bg-body) 100%);
     --gradient-v2: linear-gradient(160deg, var(--clr-bg-body) 0%, var(--clr-base-l-00) 35%, var(--clr-base-l-10) 50%, var(--clr-base-l-00) 65%, var(--clr-bg-body) 100%);
+    --gradient-v3: linear-gradient(20deg, var(--clr-base-l-30) 0%, var(--clr-base-l-40) 15%, var(--clr-base-l-50) 50%, var(--clr-base-l-40) 85%, var(--clr-base-l-30) 100%);
  
 
 
@@ -186,6 +187,8 @@
     :root {
 
     --clr-00: oklch(from var(--clr-base) 1 calc(var(--clr-chroma-level) * c) h);
+    --clr-02: oklch(from var(--clr-base) 0.98 calc(var(--clr-chroma-level) * c) h);
+    --clr-05: oklch(from var(--clr-base) 0.95 calc(var(--clr-chroma-level) * c) h);
     --clr-10: oklch(from var(--clr-base) 0.9 calc(var(--clr-chroma-level) * c) h);
     --clr-20: oklch(from var(--clr-base) 0.8 calc(var(--clr-chroma-level) * c) h);
     --clr-30: oklch(from var(--clr-base) 0.7 calc(var(--clr-chroma-level) * c) h);
@@ -195,18 +198,29 @@
     --clr-70: oklch(from var(--clr-base) 0.3 calc(var(--clr-chroma-level) * c) h);
     --clr-80: oklch(from var(--clr-base) 0.2 calc(var(--clr-chroma-level) * c) h);
     --clr-90: oklch(from var(--clr-base) 0.1 calc(var(--clr-chroma-level) * c) h);
+    --clr-95: oklch(from var(--clr-base) 0.05 calc(var(--clr-chroma-level) * c) h);
+    --clr-98: oklch(from var(--clr-base) 0.02 calc(var(--clr-chroma-level) * c) h);
     --clr-ff: oklch(from var(--clr-base) 0 calc(var(--clr-chroma-level) * c) h);
 
-    --clr-front-text: var(--clr-00);
-    --clr-bg-body: var(--clr-80);
+    --clr-text: var(--clr-00);
+    --clr-a: var(--clr-40);
+    --clr-ahover: var(--clr-00); 
+    --clr-bg-body: var(--clr-80); 
+    --clr-text-select: var(--clr-00); 
+    --clr-bg-select: var(--clr-base);
 
     
-    --clr-base-lll: oklch(from var(--clr-base) calc(l * var(--delta-ddd)) c h);
-    --clr-base-ll: oklch(from var(--clr-base) calc(l * var(--delta-dd)) c h);
-    --clr-base-l: oklch(from var(--clr-base) calc(l * var(--delta-d)) c h);
-    --clr-base-d: oklch(from var(--clr-base) calc(l * var(--delta-l)) c h);
-    --clr-base-dd: oklch(from var(--clr-base) calc(l * var(--delta-ll)) c h);
-    --clr-base-ddd: oklch(from var(--clr-base) calc(l * var(--delta-lll)) c h);
+    --clr-base-l-00: oklch(from var(--clr-base) 1 c h);
+    --clr-base-l-10: oklch(from var(--clr-base) 0.9 c h);
+    --clr-base-l-20: oklch(from var(--clr-base) 0.8 c h);
+    --clr-base-l-30: oklch(from var(--clr-base) 0.7 c h);
+    --clr-base-l-40: oklch(from var(--clr-base) 0.6 c h);
+    --clr-base-l-50: oklch(from var(--clr-base) 0.5 c h);
+    --clr-base-l-60: oklch(from var(--clr-base) 0.4 c h);
+    --clr-base-l-70: oklch(from var(--clr-base) 0.3 c h);
+    --clr-base-l-80: oklch(from var(--clr-base) 0.2 c h);
+    --clr-base-l-90: oklch(from var(--clr-base) 0.1 c h);
+    --clr-base-l-ff: oklch(from var(--clr-base) 0 c h);
     }
 
 
@@ -252,6 +266,7 @@ h5,
 .h5,
 h6,
 .h6 {
+    color: var(--clr-text);
     font-weight: 600;
     line-height: 1.2;
     text-wrap: balance;
@@ -291,6 +306,7 @@ h6,
 }
 
 p {
+    color: var(--clr-text);
     margin-top: 0;
     margin-bottom: 1rem;
     margin-bottom: 1lh;
@@ -306,7 +322,7 @@ a {
     margin-bottom: 1rem;
     font-size: var(--txt-fs-p);
     text-decoration: none;
-    font-weight: 600;
+    font-weight: 500;
     color: var(--clr-a);
     transition: color 0.3s ease-out;
 }
@@ -327,6 +343,7 @@ ul {
 }
 
 li {
+    color: var(--clr-text);
     margin-top: 0;
     margin-bottom: 1rem;
     margin-bottom: 1lh;
