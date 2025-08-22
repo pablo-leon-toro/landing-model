@@ -4,13 +4,11 @@ interface Props {
     href: string;
 }
 
-const { href = '/', body = 'Inicio'} = Astro.props;
+const { href = '/', body = 'Inicio' } = Astro.props;
 
 ---
 
 <a class="btn-principal" href={href}>{body}</a>
-
-
 <style>
 
 .btn-principal {
@@ -21,24 +19,15 @@ const { href = '/', body = 'Inicio'} = Astro.props;
     padding: .8rem 2rem;
     color: var(--clr-ff);
     background: var(--clr-00);
-    /* outline: var(--clr-00) solid 2px; */
     border-radius: .5rem;
     text-decoration: none;
     font-weight: 600;
     transition: background 0.25s ease-in, color 0.25s ease-in;
 }
 .btn-principal:hover {
-    /* color: var(--clr-20); */
+
     background: var(--clr-30);
-    /* outline: var(--clr-30) solid 2px; */
     transition: background 0s ease-in, color 0s ease-in;
-
-}
-
-@media (width < 425px) {
-    .btn-principal {
-        /* padding: 0.8rem 1.8rem; */
-    }
 
 }
  
