@@ -4,11 +4,12 @@ interface Props {
     href: string;
 }
 
-const { href = '/', body = 'Inicio' } = Astro.props;
+const { href = '', body = 'Inicio' } = Astro.props;
 
 ---
 
 <a class="btn-principal" href={href}>{body}</a>
+
 <style>
 
 .btn-principal {
